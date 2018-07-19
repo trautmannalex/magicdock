@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -11,6 +11,8 @@
     <AssemblyName>MagicLocalLibrary</AssemblyName>
     <additionalargs>/unsafe</additionalargs>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
     <RunWithWarnings>false</RunWithWarnings>
     <additionalargs>/unsafe</additionalargs>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -30,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
     <RunWithWarnings>false</RunWithWarnings>
     <additionalargs>/unsafe</additionalargs>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'StrongMagic|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -39,6 +43,7 @@
     <WarningLevel>4</WarningLevel>
     <RunWithWarnings>false</RunWithWarnings>
     <additionalargs>/unsafe</additionalargs>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -62,26 +67,46 @@
     <Compile Include="Common\DrawHelper.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\ResourceHelper.cs" />
-    <Compile Include="Controls\BorderForControl\BorderForControl.cs" />
-    <Compile Include="Controls\InertButton\InertButton.cs" />
-    <Compile Include="Controls\ResizeBar\ResizeBar.cs" />
+    <Compile Include="Controls\BorderForControl\BorderForControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\InertButton\InertButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ResizeBar\ResizeBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TabbedGroups\TabbedGroupEventArgs.cs" />
-    <Compile Include="Controls\TabbedGroups\TabbedGroups.cs" />
+    <Compile Include="Controls\TabbedGroups\TabbedGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\TabbedGroups\TabGroupBase.cs" />
     <Compile Include="Controls\TabbedGroups\TabGroupLeaf.cs" />
     <Compile Include="Controls\TabbedGroups\TabGroupSequence.cs" />
     <Compile Include="Controls\TabbedGroups\Target.cs" />
-    <Compile Include="Controls\TabControl\TabControl.cs" />
+    <Compile Include="Controls\TabControl\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\TabControl\TabControlDesigner.cs" />
-    <Compile Include="Controls\TabControl\TabPage.cs" />
-    <Compile Include="Controls\WizardControl\WizardControl.cs" />
+    <Compile Include="Controls\TabControl\TabPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\WizardControl\WizardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Controls\WizardControl\WizardControlDesigner.cs" />
-    <Compile Include="Controls\WizardControl\WizardPage.cs" />
-    <Compile Include="Docking\AutoHidePanel.cs" />
+    <Compile Include="Controls\WizardControl\WizardPage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\AutoHidePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Docking\Content.cs" />
     <Compile Include="Docking\Definitions.cs" />
     <Compile Include="Docking\DockingManager.cs" />
-    <Compile Include="Docking\FloatinglForm.cs" />
+    <Compile Include="Docking\FloatinglForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Docking\HotZone.cs" />
     <Compile Include="Docking\HotZoneFloating.cs" />
     <Compile Include="Docking\HotZoneNull.cs" />
@@ -91,19 +116,41 @@
     <Compile Include="Docking\Redocker.cs" />
     <Compile Include="Docking\RedockerContent.cs" />
     <Compile Include="Docking\Restore.cs" />
-    <Compile Include="Docking\TabStub.cs" />
-    <Compile Include="Docking\Window.cs" />
-    <Compile Include="Docking\WindowContent.cs" />
-    <Compile Include="Docking\WindowContentTabbed.cs" />
-    <Compile Include="Docking\WindowDetail.cs" />
-    <Compile Include="Docking\WindowDetailCaption.cs" />
-    <Compile Include="Docking\Zone.cs" />
+    <Compile Include="Docking\TabStub.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Docking\Window.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\WindowContent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\WindowContentTabbed.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\WindowDetail.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\WindowDetailCaption.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Docking\Zone.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Docking\ZoneHelper.cs" />
-    <Compile Include="Docking\ZoneSequence.cs" />
-    <Compile Include="Forms\WizardDialog.cs" />
+    <Compile Include="Docking\ZoneSequence.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\WizardDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Menus\DrawCommand.cs" />
-    <Compile Include="Menus\MenuCommand.cs" />
-    <Compile Include="Menus\MenuControl.cs" />
+    <Compile Include="Menus\MenuCommand.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Menus\MenuControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Menus\MenuControlDesigner.cs" />
     <Compile Include="Menus\PopupMenu.cs" />
     <Compile Include="Win32\Enums.cs" />
@@ -188,7 +235,5 @@
     <Reference Include="System.Design" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="Win32\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
